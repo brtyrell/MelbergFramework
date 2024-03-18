@@ -10,6 +10,7 @@
     <ItemGroup>
 	  <ProjectReference Include="..\MelbergFramework.Core\MelbergFramework.Core.csproj" />
 	  <ProjectReference Include="..\MelbergFramework.Core.ComponentTesting\MelbergFramework.Core.ComponentTesting.csproj" />
+	  <ProjectReference Include="..\MelbergFramework.Application\MelbergFramework.Application.csproj" />
     </ItemGroup>
 
 </Project>

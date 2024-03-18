@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MelbergFramework.Core", "Me
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MelbergFramework.Core.ComponentTesting", "MelbergFramework.Core.ComponentTesting\MelbergFramework.Core.ComponentTesting.csproj", "{B0D4671D-EE0A-480E-8DA9-296CF42B53B1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MelbergFramework.Application", "MelbergFramework.Application\MelbergFramework.Application.csproj", "{527AE06D-ED87-4432-AA3B-6CE902EB7C56}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{B0D4671D-EE0A-480E-8DA9-296CF42B53B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0D4671D-EE0A-480E-8DA9-296CF42B53B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0D4671D-EE0A-480E-8DA9-296CF42B53B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{527AE06D-ED87-4432-AA3B-6CE902EB7C56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{527AE06D-ED87-4432-AA3B-6CE902EB7C56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{527AE06D-ED87-4432-AA3B-6CE902EB7C56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{527AE06D-ED87-4432-AA3B-6CE902EB7C56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
