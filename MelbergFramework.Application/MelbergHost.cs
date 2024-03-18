@@ -1,6 +1,7 @@
 using MelbergFramework.Core.HealthCheck;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 namespace MelbergFramework.Application;
 
@@ -42,6 +43,21 @@ public class MelbergHost
     public MelbergHost ConfigureApp(ConfigureApplication appAction) 
     {
         AppActions += appAction;
+
+        return this;
+    }
+
+    public MelbergHost DevelopmentPasswordReplacement(
+            string key,
+            string replacementKey)
+    {
+        AppActions += (WebApplication _) => 
+        {
+            if(_.Environment.IsDevelopment())
+            {
+                _.Configuration[key] = _.Configuration[replacementKey];
+            }
+        };
 
         return this;
     }
