@@ -3,11 +3,19 @@ using MelbergFramework.Core.Time;
 using MelbergFramework.Core.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.AspNetCore.Builder;
+using LightBDD.MsTest3;
 
 namespace MelbergFramework.Core.ComponentTesting.Tests;
 
-public partial class BaseTest : BaseTestFrame
+public partial class BaseTest : FeatureFixture
 {
+    public WebApplication App;
+
+    public T GetClass<T>() => (T)App
+        .Services
+        .GetService(typeof(T));
+    
     public BaseTest()
     {
         App = MelbergHost
