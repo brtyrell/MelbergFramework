@@ -10,17 +10,7 @@ internal class Program
     private static async Task Main(string[] args)
     {
         var app = MelbergHost
-            .CreateHost()
-            .AddServices(_ =>
-                {
-                    ClockModule.RegisterClock(_);
-                })
-            .AddServices(_ => 
-                {
-                    _.AddTransient<IHealthCheck, TestHealthCheck>();                              
-                    _.AddSingleton<MockClock>();
-                    _.OverrideWithSingleton<IClock,MockClock>();
-                })
+            .CreateHost<DemoRegistrator>()
             .AddControllers()
             .Build();
 
@@ -37,4 +27,5 @@ internal class Program
         Console.WriteLine(clock.GetUtcNow == mock.GetUtcNow);
         await app.RunAsync();
     }
+
 }

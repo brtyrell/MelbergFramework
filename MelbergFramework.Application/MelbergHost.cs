@@ -15,13 +15,18 @@ public class MelbergHost
         ConfigureApplication(WebApplication app);
     public ConfigureApplication AppActions = (WebApplication _) => {};
 
-
     private MelbergHost() { }
 
-    public static MelbergHost CreateHost()
+    public static MelbergHost CreateHost<TRegistrator>()
+        where TRegistrator : Registrator, new()
     {
         return new MelbergHost()
-            .AddHealthRegistration();
+            .AddHealthRegistration()
+            .AddServices( (IServiceCollection _) => 
+            {
+                var registrator = new TRegistrator();
+                registrator.RegisterServices(_);
+            });
     }
     
     public MelbergHost AddServices(RegisterServices serviceAction)
@@ -64,7 +69,15 @@ public class MelbergHost
 
     public MelbergHost AddControllers()
     {
-        ServiceActions += (IServiceCollection _) => { _.AddControllers(); };
+        ServiceActions += (IServiceCollection _) => {
+            _.AddControllers();
+        };
+
+        AppActions += (WebApplication _) => {
+            _.UseSwagger();
+            _.UseSwaggerUI();
+        };
+
         return this;
     }
 
@@ -98,8 +111,6 @@ public class MelbergHost
             .AllowCredentials()
             );
 
-        app.UseSwagger();
-        app.UseSwaggerUI();
 
         return app;
     }
