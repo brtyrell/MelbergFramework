@@ -1,38 +1,25 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-    
-  <PropertyGroup>
-      <ImplicitUsings>enable</ImplicitUsings>
-      <Nullable>enable</Nullable>
-      <TargetFramework>net8.0</TargetFramework>
-      <PackageId>MelbergFramework.Core.ComponentTesting</PackageId>
-      <Version>1.0.2</Version>
-      <Authors>Joseph Melberg</Authors>
-      <PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
-  </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MelbergFramework.Core.ComponentTesting\MelbergFramework.Core.ComponentTesting.csproj" />
+    <ProjectReference Include="..\MelbergFramework.Application\MelbergFramework.Application.csproj" />
     <ProjectReference Include="..\MelbergFramework.Core\MelbergFramework.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-      <FrameworkReference Include="Microsoft.AspNetCore.App" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
     <PackageReference Include="LightBDD.MsTest3" Version="3.7.0" />
-    <PackageReference Include="LightBDD.XUnit2" Version="3.7.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
     <PackageReference Include="xunit" Version="2.7.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="3.0.4" />
     <PackageReference Include="MSTest.TestFramework" Version="3.0.4" />
     <PackageReference Include="coverlet.collector" Version="1.3.0" />
-  </ItemGroup>
+</ItemGroup>
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
 </Project>
